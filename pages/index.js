@@ -1,5 +1,9 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import React from 'react';
+import logo from '../public/logo.png';
+import {Carousel} from 'react-responsive-carousel'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function Home() {
   const [hiddenMenu, setHiddenMenu] = React.useState(false);
@@ -8,48 +12,69 @@ export default function Home() {
   }
   
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center" style={{backgroundColor:'white'}}>
       <Head>
         <title>Walid Porto</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.png" />
       </Head>
       
-      <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 w-full">
+      <nav className="bg-white border-gray-200 px-2 sm:px-4 py-3 dark:bg-gray-900 w-full">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="https://flowbite.com/" className="flex items-center">
-              <img src="https://flowbite.com/docs/images/logo.svg" className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
-              <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+              <Image src={logo} className="h-8 mr-3 sm:h-9" alt="Flowbite Logo" width="30"/>
+              <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">WATOK</span>
           </a>
+          <input className="w-full md:block md:w-auto" style={{padding:'10px',fontSize:'12px',borderRadius:'10px',width:'30vw'}} type="text" id="roll" name="roll" required  minlength="10" maxlength="20" placeholder='Cari di Watok sini'/>
           <button data-collapse-toggle="navbar-default" type="button" onClick={handleClick} className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
             <span className="sr-only">Open main menu</span>
             <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
           </button>
-          <div className={hiddenMenu ? "display w-full md:block md:w-auto" : "hidden w-full md:block md:w-auto"} id="navbar-default">
-            <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li>
-                <a href="#" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
-              </li>
-              <li>
-                <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
-              </li>
-              <li>
-                <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-              </li>
-              <li>
-                <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-              </li>
-              <li>
-                <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-              </li>
-            </ul>
+          <div className={hiddenMenu ? "w-full md:block md:w-auto" : "hidden w-full md:block md:w-auto"} id="navbar-default">
+            <div className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <div className='md:pt-1 md:pb-1 md:pr-3 md:pl-3'>
+                <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  Nampan
+                </a>
+              </div>
+              <div className="hidden md:block text-blue-100" style={{height:'24px',borderLeft:'1px solid white', height:'30px'}} />
+              <div className='md:pt-1 md:pb-1 md:pr-3 md:pl-3 border-solid border-2 border-cyan-300' style={{borderRadius:'10px'}}>
+                <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-zinc-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  Login
+                </a>
+              </div>
+              <div className='md:pt-1 md:pb-1 md:pr-3 md:pl-3 bg-cyan-300' style={{borderRadius:'10px'}}>
+                <a href="#" className="block  py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-zinc-900 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  Daftar
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          Hello World
-        </div>
+        <Carousel autoPlay='true' infiniteLoop='true' interval='3000' showIndicators='false'>
+          <div>
+              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"/>
+              {/* <p className="legend">Image 1</p> */}
+          </div>
+          <div>
+              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg" />
+              {/* <p className="legend">Image 2</p> */}
+          </div>
+          <div>
+              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"/>
+              {/* <p className="legend">Image 3</p> */}
+          </div>
+          <div>
+              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"/>
+              {/* <p className="legend">Image 4</p> */}
+          </div>
+          <div>
+              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"/>
+              {/* <p className="legend">Image 5</p> */}
+          </div>
+        </Carousel>
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
